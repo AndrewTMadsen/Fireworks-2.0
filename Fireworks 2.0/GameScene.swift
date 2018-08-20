@@ -12,6 +12,7 @@ import AVFoundation
  
 class GameScene: SKScene {
     
+    static var sharedInstance: GameScene!
     var hasSetSize = false
     var particles = [UITouch: SKEmitterNode]()
     var particleTrails = [UITouch: SKEmitterNode]()
@@ -20,7 +21,7 @@ class GameScene: SKScene {
     var delayTime = 0.125
     var isTouchEligible = true
     let instrumentTypes: [Instrument: Int] = [.piano: 8, .guitar: 6]
-    var currentInstrument = Instrument.guitar
+    var currentInstrument = Instrument.piano
     
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
@@ -189,6 +190,17 @@ enum Instrument
 
 protocol RecorderDelegate: class  {
     func fireworkHasFired(point: CGPoint)
-    
-    
+}
+
+extension String
+{
+    func titlecased() -> String
+    {
+        var newString = ""
+        for word in self.split(separator: " ")
+        {
+            newString += "\(String(word.first!).uppercased())\(word.dropFirst().lowercased())"
+        }
+        return newString
+    }
 }

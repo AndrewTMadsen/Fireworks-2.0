@@ -16,17 +16,10 @@
 		9D1481CE2112057C00650980 /* Piano_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481C62112057C00650980 /* Piano_0.mp3 */; };
 		9D1481CF2112057C00650980 /* Piano_7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481C72112057C00650980 /* Piano_7.mp3 */; };
 		9D1481D02112057C00650980 /* Piano_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481C82112057C00650980 /* Piano_5.mp3 */; };
-		9D1481E5211354FD00650980 /* Guitar_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481DF211354FC00650980 /* Guitar_3.mp3 */; };
-		9D1481E6211354FD00650980 /* Guitar_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481E0211354FD00650980 /* Guitar_4.mp3 */; };
-		9D1481E7211354FD00650980 /* Guitar_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481E1211354FD00650980 /* Guitar_5.mp3 */; };
-		9D1481E8211354FD00650980 /* Guitar_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481E2211354FD00650980 /* Guitar_2.mp3 */; };
-		9D1481E9211354FD00650980 /* Guitar_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481E3211354FD00650980 /* Guitar_0.mp3 */; };
-		9D1481EA211354FD00650980 /* Guitar_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D1481E4211354FD00650980 /* Guitar_1.mp3 */; };
 		9D1481ED211B50F200650980 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481EB211B50F200650980 /* Model.xcdatamodeld */; };
 		9D1481EF211C7BF500650980 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481EE211C7BF500650980 /* Stack.swift */; };
 		9D1481F1211C851000650980 /* FireworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481F0211C851000650980 /* FireworkController.swift */; };
 		9D1481F3211C89B000650980 /* Firework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481F2211C89B000650980 /* Firework.swift */; };
-		9D2B06472123AD4E003C103D /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2B06462123AD4E003C103D /* SettingsView.swift */; };
 		9D2B06492124A96C003C103D /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2B06482124A96C003C103D /* SettingsCell.swift */; };
 		9D6C151D20F6632A0050BD60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C151C20F6632A0050BD60 /* AppDelegate.swift */; };
 		9D6C151F20F6632A0050BD60 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9D6C151E20F6632A0050BD60 /* GameScene.sks */; };
@@ -91,17 +84,10 @@
 		9D1481C62112057C00650980 /* Piano_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Piano_0.mp3; sourceTree = "<group>"; };
 		9D1481C72112057C00650980 /* Piano_7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Piano_7.mp3; sourceTree = "<group>"; };
 		9D1481C82112057C00650980 /* Piano_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Piano_5.mp3; sourceTree = "<group>"; };
-		9D1481DF211354FC00650980 /* Guitar_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_3.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_3.mp3; sourceTree = "<group>"; };
-		9D1481E0211354FD00650980 /* Guitar_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_4.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_4.mp3; sourceTree = "<group>"; };
-		9D1481E1211354FD00650980 /* Guitar_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_5.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_5.mp3; sourceTree = "<group>"; };
-		9D1481E2211354FD00650980 /* Guitar_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_2.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_2.mp3; sourceTree = "<group>"; };
-		9D1481E3211354FD00650980 /* Guitar_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_0.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_0.mp3; sourceTree = "<group>"; };
-		9D1481E4211354FD00650980 /* Guitar_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Guitar_1.mp3; path = ../../../../../../../../../../Downloads/Archive/Guitar_1.mp3; sourceTree = "<group>"; };
 		9D1481EC211B50F200650980 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		9D1481EE211C7BF500650980 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		9D1481F0211C851000650980 /* FireworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkController.swift; sourceTree = "<group>"; };
 		9D1481F2211C89B000650980 /* Firework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firework.swift; sourceTree = "<group>"; };
-		9D2B06462123AD4E003C103D /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9D2B06482124A96C003C103D /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		9D6C151920F6632A0050BD60 /* Fireworks 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fireworks 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C151C20F6632A0050BD60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -173,7 +159,6 @@
 		9D1481C02112047300650980 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				9D1481D2211353DF00650980 /* Guitar */,
 				9D1481D12112132B00650980 /* Piano */,
 				9D094BB3210F5B710022816B /* Firework Sound.mp3 */,
 			);
@@ -193,19 +178,6 @@
 				9D1481C62112057C00650980 /* Piano_0.mp3 */,
 			);
 			path = Piano;
-			sourceTree = "<group>";
-		};
-		9D1481D2211353DF00650980 /* Guitar */ = {
-			isa = PBXGroup;
-			children = (
-				9D1481E1211354FD00650980 /* Guitar_5.mp3 */,
-				9D1481E0211354FD00650980 /* Guitar_4.mp3 */,
-				9D1481DF211354FC00650980 /* Guitar_3.mp3 */,
-				9D1481E2211354FD00650980 /* Guitar_2.mp3 */,
-				9D1481E4211354FD00650980 /* Guitar_1.mp3 */,
-				9D1481E3211354FD00650980 /* Guitar_0.mp3 */,
-			);
-			path = Guitar;
 			sourceTree = "<group>";
 		};
 		9D6C151020F6632A0050BD60 = {
@@ -236,7 +208,6 @@
 				9D6C152020F6632A0050BD60 /* Actions.sks */,
 				9D6C152220F6632A0050BD60 /* GameScene.swift */,
 				9D6C152420F6632A0050BD60 /* GameViewController.swift */,
-				9D2B06462123AD4E003C103D /* SettingsView.swift */,
 				9D2B06482124A96C003C103D /* SettingsCell.swift */,
 				9D6C152620F6632A0050BD60 /* Main.storyboard */,
 				9D1481EE211C7BF500650980 /* Stack.swift */,
@@ -414,7 +385,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DB4066021004CE80068B832 /* FireworkRL.sks in Resources */,
-				9D1481E9211354FD00650980 /* Guitar_0.mp3 in Resources */,
 				9D872491210A0D6000C8E7AE /* TrailGOD.sks in Resources */,
 				9DB40667210051F30068B832 /* FireworkAB.sks in Resources */,
 				9D8724A5210A1A5300C8E7AE /* Trail10.sks in Resources */,
@@ -433,7 +403,6 @@
 				9D1481CE2112057C00650980 /* Piano_0.mp3 in Resources */,
 				9DB4066321004F420068B832 /* FireworkKA.sks in Resources */,
 				9DB40669210060600068B832 /* FireworkSM.sks in Resources */,
-				9D1481E5211354FD00650980 /* Guitar_3.mp3 in Resources */,
 				9D1481C92112057C00650980 /* Piano_3.mp3 in Resources */,
 				9DB4065C21004BA80068B832 /* FireWorkAN.sks in Resources */,
 				9D1481CF2112057C00650980 /* Piano_7.mp3 in Resources */,
@@ -443,19 +412,15 @@
 				9D872489210A08FB00C8E7AE /* Trail1.sks in Resources */,
 				9D8724842108B73400C8E7AE /* testTrail.sks in Resources */,
 				9D1481CD2112057C00650980 /* Piano_6.mp3 in Resources */,
-				9D1481E7211354FD00650980 /* Guitar_5.mp3 in Resources */,
 				9D1481CC2112057C00650980 /* Piano_1.mp3 in Resources */,
 				9DB40665210050440068B832 /* FireworkCA.sks in Resources */,
 				9D87248B210A0A5300C8E7AE /* Trail2.sks in Resources */,
 				9DB4066B210076C70068B832 /* FireworkBM.sks in Resources */,
-				9D1481E8211354FD00650980 /* Guitar_2.mp3 in Resources */,
 				9D6C152D20F6632B0050BD60 /* LaunchScreen.storyboard in Resources */,
 				9D6C152120F6632A0050BD60 /* Actions.sks in Resources */,
 				9D881A2820FCE40D0011D2C0 /* FireworkExplosion2.sks in Resources */,
 				9DB4066121004CE80068B832 /* Assets.xcassets in Resources */,
 				9D87248F210A0C9F00C8E7AE /* Trail3.sks in Resources */,
-				9D1481EA211354FD00650980 /* Guitar_1.mp3 in Resources */,
-				9D1481E6211354FD00650980 /* Guitar_4.mp3 in Resources */,
 				9D881A2E20FCEB5F0011D2C0 /* FireworkExplosion4.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -482,7 +447,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1481F1211C851000650980 /* FireworkController.swift in Sources */,
-				9D2B06472123AD4E003C103D /* SettingsView.swift in Sources */,
 				9D2B06492124A96C003C103D /* SettingsCell.swift in Sources */,
 				9D6C152320F6632A0050BD60 /* GameScene.swift in Sources */,
 				9D1481EF211C7BF500650980 /* Stack.swift in Sources */,
@@ -663,14 +627,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F35N7BWAFY;
+				DEVELOPMENT_TEAM = 96V2QW343B;
 				INFOPLIST_FILE = "Fireworks 2.0/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tyler.Fireworks-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -682,14 +646,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = F35N7BWAFY;
+				DEVELOPMENT_TEAM = 96V2QW343B;
 				INFOPLIST_FILE = "Fireworks 2.0/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tyler.Fireworks-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

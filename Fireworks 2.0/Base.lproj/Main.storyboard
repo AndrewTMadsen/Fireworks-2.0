@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,118 +18,104 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ7-Ov-wYi">
-                                <rect key="frame" x="292" y="34" width="45" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJ7-Ov-wYi">
+                                <rect key="frame" x="302" y="16" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
                                 <connections>
-                                    <action selector="RecordingTapped:" destination="BV1-FR-VrT" eventType="touchUpInside" id="9yX-ff-mLZ"/>
-                                    <action selector="change:" destination="BV1-FR-VrT" eventType="touchUpInside" id="dOp-NE-hyf"/>
+                                    <action selector="toggleSettingsView:" destination="BV1-FR-VrT" eventType="touchUpInside" id="m0f-b0-Wbr"/>
                                 </connections>
                             </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <gestureRecognizers/>
-                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
-        </scene>
-        <!--Settings Launcher-->
-        <scene sceneID="QTv-1Z-2bN">
-            <objects>
-                <viewController id="PpV-7N-t7m" customClass="SettingsLauncher" customModule="Fireworks_2_0" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ms0-Fp-ScL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXL-ga-C72">
-                                <rect key="frame" x="0.0" y="462" width="375" height="205"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-hg-PT9">
+                                <rect key="frame" x="0.0" y="667" width="375" height="205"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="0RY-Jh-tci">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLZ-l6-Wjy">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ljF-jT-W8O">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K1p-nS-0OS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="xwT-BP-1jl"/>
+                                                    <constraint firstAttribute="height" constant="50" id="qsy-XE-Y6T"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="G9T-WI-o2i">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mut-4S-4rf">
                                                 <rect key="frame" x="0.0" y="58" width="375" height="31"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Trails" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mks-S3-juV">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Trails" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnT-zt-L0u">
                                                         <rect key="frame" x="0.0" y="0.0" width="179.5" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hL6-XY-YI3">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tZE-Gc-hEG">
                                                         <rect key="frame" x="195.5" y="0.0" width="181.5" height="31"/>
                                                         <connections>
-                                                            <action selector="trailsSwitched:" destination="PpV-7N-t7m" eventType="valueChanged" id="rVg-6f-qGk"/>
+                                                            <action selector="trailsSwitched:" destination="BV1-FR-VrT" eventType="valueChanged" id="c6Q-Dh-Iih"/>
                                                         </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9kU-wA-MoX">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtV-ja-EAV">
                                                 <rect key="frame" x="0.0" y="97" width="375" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="hwm-s9-ehg"/>
+                                                    <constraint firstAttribute="height" constant="50" id="KlU-2X-Crf"/>
                                                 </constraints>
                                                 <state key="normal" title="Start Recording"/>
                                                 <connections>
-                                                    <action selector="toggleRecording:" destination="PpV-7N-t7m" eventType="touchUpInside" id="kdc-Q7-pSZ"/>
+                                                    <action selector="toggleRecording:" destination="BV1-FR-VrT" eventType="touchUpInside" id="VbS-rU-NSr"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aqG-xW-QCb">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfE-kn-OC7">
                                                 <rect key="frame" x="0.0" y="155" width="375" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="DIR-d5-6dI"/>
+                                                    <constraint firstAttribute="height" constant="50" id="YRm-dY-XSC"/>
                                                 </constraints>
                                                 <state key="normal" title="View Recordings">
                                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="viewRecordings:" destination="PpV-7N-t7m" eventType="touchUpInside" id="RAn-eI-Swv"/>
+                                                    <action selector="viewRecordings:" destination="BV1-FR-VrT" eventType="touchUpInside" id="HVb-Ik-3gF"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="aqG-xW-QCb" firstAttribute="top" secondItem="9kU-wA-MoX" secondAttribute="bottom" constant="8" id="WX6-nd-ltr"/>
-                                            <constraint firstItem="aqG-xW-QCb" firstAttribute="top" secondItem="9kU-wA-MoX" secondAttribute="bottom" constant="8" id="a4S-o3-3Sg"/>
-                                            <constraint firstAttribute="bottom" secondItem="aqG-xW-QCb" secondAttribute="bottom" id="cuj-aa-sEP"/>
-                                            <constraint firstItem="9kU-wA-MoX" firstAttribute="top" secondItem="G9T-WI-o2i" secondAttribute="bottom" constant="8" id="k6B-4s-mxw"/>
+                                            <constraint firstItem="HfE-kn-OC7" firstAttribute="top" secondItem="jtV-ja-EAV" secondAttribute="bottom" constant="8" id="GFB-ws-0Xj"/>
+                                            <constraint firstItem="jtV-ja-EAV" firstAttribute="top" secondItem="mut-4S-4rf" secondAttribute="bottom" constant="8" id="MNq-wW-D7v"/>
+                                            <constraint firstItem="HfE-kn-OC7" firstAttribute="top" secondItem="jtV-ja-EAV" secondAttribute="bottom" constant="8" id="Zfe-Ce-Ldn"/>
+                                            <constraint firstAttribute="bottom" secondItem="HfE-kn-OC7" secondAttribute="bottom" id="hzq-iW-WYa"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="0RY-Jh-tci" firstAttribute="top" secondItem="LXL-ga-C72" secondAttribute="top" id="ZRy-YH-1r1"/>
-                                    <constraint firstItem="0RY-Jh-tci" firstAttribute="leading" secondItem="LXL-ga-C72" secondAttribute="leading" id="cKx-9b-eaZ"/>
-                                    <constraint firstAttribute="bottom" secondItem="0RY-Jh-tci" secondAttribute="bottom" id="cVm-nF-vFR"/>
-                                    <constraint firstAttribute="trailing" secondItem="0RY-Jh-tci" secondAttribute="trailing" id="jVK-lH-QDq"/>
+                                    <constraint firstItem="xLZ-l6-Wjy" firstAttribute="leading" secondItem="BaX-hg-PT9" secondAttribute="leading" id="34p-X1-T4K"/>
+                                    <constraint firstAttribute="bottom" secondItem="xLZ-l6-Wjy" secondAttribute="bottom" id="kxl-Ry-33E"/>
+                                    <constraint firstAttribute="height" constant="205" id="r58-Y6-9Lr"/>
+                                    <constraint firstItem="xLZ-l6-Wjy" firstAttribute="top" secondItem="BaX-hg-PT9" secondAttribute="top" id="rY5-O9-wJ2"/>
+                                    <constraint firstAttribute="trailing" secondItem="xLZ-l6-Wjy" secondAttribute="trailing" id="tsR-2K-QSn"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="vNV-Kd-kGC" firstAttribute="bottom" secondItem="LXL-ga-C72" secondAttribute="bottom" id="3yn-M3-otN"/>
-                            <constraint firstItem="LXL-ga-C72" firstAttribute="leading" secondItem="vNV-Kd-kGC" secondAttribute="leading" id="ABV-Io-mDh"/>
-                            <constraint firstItem="vNV-Kd-kGC" firstAttribute="trailing" secondItem="LXL-ga-C72" secondAttribute="trailing" id="t5y-qg-jgD"/>
+                            <constraint firstItem="sJ7-Ov-wYi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="8" id="10e-vG-oCG"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="sJ7-Ov-wYi" secondAttribute="trailing" constant="16" id="EXQ-B0-Daf"/>
+                            <constraint firstItem="BaX-hg-PT9" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="bottom" id="IXY-Gv-Q2s"/>
+                            <constraint firstItem="BaX-hg-PT9" firstAttribute="trailing" secondItem="4qk-I5-YsI" secondAttribute="trailing" id="Ob5-7Z-LQw"/>
+                            <constraint firstItem="BaX-hg-PT9" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="Tyf-i4-3vQ"/>
+                            <constraint firstItem="sJ7-Ov-wYi" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="16" id="lfw-Cd-vbe"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="vNV-Kd-kGC"/>
+                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
-                        <outlet property="instrumentsStackView" destination="ljF-jT-W8O" id="Vdz-4X-hon"/>
+                        <outlet property="instrumentStackView" destination="K1p-nS-0OS" id="GJP-Of-63o"/>
+                        <outlet property="settingsView" destination="BaX-hg-PT9" id="zuZ-Yy-wCz"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="zvt-cy-hmE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="163"/>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>
