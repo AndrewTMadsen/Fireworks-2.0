@@ -11,12 +11,20 @@ import SpriteKit
 import GameplayKit
 import ReplayKit
 
+protocol SettingsDelegate {
+    func settingsChanged(hasTrails: Bool, sound: Instrument)
+}
+
 class GameViewController: UIViewController, RPPreviewViewControllerDelegate, RecorderDelegate {
+
+    @IBOutlet weak var trailsSwitch: UISwitch!
+    
     
     var startTime: TimeInterval = 0
     var timeKeep: [TimeInterval: CGPoint] = [:]
     let recorder = RPScreenRecorder.shared()
     private var isRecording = false
+    var delegate: SettingsDelegate?
     
     func fireworkHasFired(point: CGPoint) {
         if isRecording {
@@ -58,6 +66,7 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
                 GameScene.sharedInstance = scene
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
+                delegate = scene
                 // Present the scene
                 view.presentScene(scene)
             }
@@ -92,19 +101,23 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
         }
     }
     
-    @objc func instrumentButtonTapped(_ sender: UIButton)
-    {
+    @objc func instrumentButtonTapped(_ sender: UIButton){
+        var selectedSound: Instrument?
         if sender.title(for: .normal) == "Trails" {
             //Set things to trails
-        }
-        else {
+        } else {
             for instrument in GameScene.sharedInstance.instrumentTypes.keys {
                 if sender.title(for: .normal)!.lowercased() == "\(instrument)" {
-                    //Set things to that instrument
+                    selectedSound = instrument
                     break
                 }
             }
         }
+        guard let sound = selectedSound else {
+            print("Invalid Button")
+            return
+        }
+        delegate?.settingsChanged(hasTrails: trailsSwitch.isOn, sound: sound)
     }
     
     @IBAction func trailsSwitched(_ sender: UISwitch) {

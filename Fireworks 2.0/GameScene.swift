@@ -10,8 +10,7 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
  
-class GameScene: SKScene {
-    
+class GameScene: SKScene, SettingsDelegate {
     static var sharedInstance: GameScene!
     var hasSetSize = false
     var particles = [UITouch: SKEmitterNode]()
@@ -22,7 +21,12 @@ class GameScene: SKScene {
     var isTouchEligible = true
     let instrumentTypes: [Instrument: Int] = [.piano: 8, .guitar: 6]
     var currentInstrument = Instrument.piano
+    var trailEnabled = true
     
+    func settingsChanged(hasTrails: Bool, sound: Instrument) {
+        currentInstrument = sound
+        trailEnabled = hasTrails
+    }
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
         isTouchEligible = false
