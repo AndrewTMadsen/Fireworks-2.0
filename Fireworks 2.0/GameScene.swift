@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 import AVFoundation
  
-class GameScene: SKScene, SettingsDelegate {
+class GameScene: SKScene {
     static var sharedInstance: GameScene!
     var hasSetSize = false
     var particles = [UITouch: SKEmitterNode]()
@@ -21,12 +21,8 @@ class GameScene: SKScene, SettingsDelegate {
     var isTouchEligible = true
     let instrumentTypes: [Instrument: Int] = [.piano: 8, .guitar: 6]
     var currentInstrument = Instrument.piano
-    var trailEnabled = true
+    var trailsEnabled = false
     
-    func settingsChanged(hasTrails: Bool, sound: Instrument) {
-        currentInstrument = sound
-        trailEnabled = hasTrails
-    }
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
         isTouchEligible = false
@@ -39,41 +35,39 @@ class GameScene: SKScene, SettingsDelegate {
     
     //MARK: Touch
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isTouchEligible {
-            startTimer()
-            //startTail(at: touches) { point in //NON MUSIC MODE
-            for point in touches {
-                fireFirework(CGPoint(x: point.preciseLocation(in: view).x, y: -point.preciseLocation(in: view).y)) //If not music, pass in just point here.
-                var section = 0
-                var currentSize = UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
-                while(currentSize < point.preciseLocation(in: view).y) //If not music, pass in just -point.y here.
-                {
-                    currentSize += UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
-                    section += 1 //Thanks swift ++ is so hard
-                }
-                
-                //How the below line looks in any other respectable language: ((String) currentInstrument).substring(0, 1) + ((String) currentInstrument).substring(1)
-                playBoomSound("\(String("\(currentInstrument)".first!).uppercased())\(String("\(currentInstrument)".dropFirst().lowercased()))_\(section)")
-                // self.playBoomSound()
-            }
-        }
+        runTouch(touches)
     }
+    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        runTouch(touches)
+    }
+    
+    func runTouch(_ touches: Set<UITouch>) {
         if isTouchEligible {
             startTimer()
             //startTail(at: touches) { point in //NON MUSIC MODE
-            for point in touches
-            {
-                fireFirework(CGPoint(x: point.preciseLocation(in: view).x, y: -point.preciseLocation(in: view).y)) //If not music, pass in just point here.
-                var section = 0
-                var currentSize = UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
-                while(currentSize < point.preciseLocation(in: view).y) //If not music, pass in just -point.y here.
-                {
-                    currentSize += UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
-                    section += 1 //Thanks swift ++ is so hard
+            if trailsEnabled {
+                startTail(at: touches) { point in
+                    self.fireFirework(point) //If not music, pass in just point here.
+                    var section = 0
+                    var currentSize = UIScreen.main.bounds.height / CGFloat(self.instrumentTypes[self.currentInstrument]!)
+                    while(currentSize < -point.y) { //If not music, pass in just -point.y here.
+                        currentSize += UIScreen.main.bounds.height / CGFloat(self.instrumentTypes[self.currentInstrument]!)
+                        section += 1 //Thanks swift ++ is so hard
+                    }
+                    self.playBoomSound("Firework Sound")
                 }
-                playBoomSound("\(String("\(currentInstrument)".first!).uppercased())\(String("\(currentInstrument)".dropFirst().lowercased()))_\(section)")
-                // self.playBoomSound()
+            } else {
+                for point in touches {
+                    fireFirework(CGPoint(x: point.preciseLocation(in: view).x, y: -point.preciseLocation(in: view).y)) //If not music, pass in just point here.
+                    var section = 0
+                    var currentSize = UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
+                    while(currentSize < point.preciseLocation(in: view).y) { //If not music, pass in just -point.y here.
+                        currentSize += UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
+                        section += 1 //Thanks swift ++ is so hard
+                    }
+                    playBoomSound("\("\(currentInstrument)".titlecased())_\(section)")
+                }
             }
         }
     }
@@ -95,7 +89,6 @@ class GameScene: SKScene, SettingsDelegate {
     }
     
     //MARK: Fireworks
-    
     var booms: [SKEmitterNode] = [SKEmitterNode(fileNamed: "FireworkExplosion")!, SKEmitterNode(fileNamed: "FireworkExplosion2")!, SKEmitterNode(fileNamed:"FireworkExplosion3")!, SKEmitterNode(fileNamed: "FireworkExplosion4")!, SKEmitterNode(fileNamed: "FireWorkAN")!, SKEmitterNode(fileNamed: "FireworkRL")!, SKEmitterNode(fileNamed: "FireworkKA")!, SKEmitterNode(fileNamed: "FireworkCA")!, SKEmitterNode(fileNamed: "FireworkAB")!, SKEmitterNode(fileNamed: "FireworkSM")!, SKEmitterNode(fileNamed: "FireworkBM")!]
     
     func playBoomSound(_ fileName: String) {
@@ -121,7 +114,6 @@ class GameScene: SKScene, SettingsDelegate {
             self.addChild(particle)
         }
         //send data to gameviewController
-        
     }
     
     func getParticle(_ touch: UITouch) -> SKEmitterNode? {
@@ -187,8 +179,7 @@ extension GameScene: AVAudioPlayerDelegate {
     }
 }
 
-enum Instrument
-{
+enum Instrument {
     case piano, guitar
 }
 
@@ -196,13 +187,10 @@ protocol RecorderDelegate: class  {
     func fireworkHasFired(point: CGPoint)
 }
 
-extension String
-{
-    func titlecased() -> String
-    {
+extension String {
+    func titlecased() -> String {
         var newString = ""
-        for word in self.split(separator: " ")
-        {
+        for word in self.split(separator: " ") {
             newString += "\(String(word.first!).uppercased())\(word.dropFirst().lowercased())"
         }
         return newString

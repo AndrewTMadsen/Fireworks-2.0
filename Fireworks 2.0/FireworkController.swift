@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 class FireworkController {
-    
     static let sharedController = FireworkController()
     
     var fireworks: [Firework] {
@@ -31,10 +30,12 @@ class FireworkController {
             print("Cant save to core data")
         }
     }
+    
     func delete(Firework: Firework) {
         Stack.context.delete(Firework)
         save()
     }
+    
     func createFirework(time: Int64, x: Double, y: Double) {
        let _ = Firework(time: time, x: x, y: y)
         save()

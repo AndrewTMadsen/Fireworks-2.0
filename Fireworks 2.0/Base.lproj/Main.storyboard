@@ -26,10 +26,10 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaX-hg-PT9">
-                                <rect key="frame" x="0.0" y="667" width="375" height="205"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xLZ-l6-Wjy">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="K1p-nS-0OS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -37,25 +37,8 @@
                                                     <constraint firstAttribute="height" constant="50" id="qsy-XE-Y6T"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mut-4S-4rf">
-                                                <rect key="frame" x="0.0" y="58" width="375" height="31"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Has Trails" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnT-zt-L0u">
-                                                        <rect key="frame" x="0.0" y="0.0" width="179.5" height="31"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tZE-Gc-hEG">
-                                                        <rect key="frame" x="195.5" y="0.0" width="181.5" height="31"/>
-                                                        <connections>
-                                                            <action selector="trailsSwitched:" destination="BV1-FR-VrT" eventType="valueChanged" id="c6Q-Dh-Iih"/>
-                                                        </connections>
-                                                    </switch>
-                                                </subviews>
-                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtV-ja-EAV">
-                                                <rect key="frame" x="0.0" y="97" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="58" width="375" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KlU-2X-Crf"/>
                                                 </constraints>
@@ -65,7 +48,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfE-kn-OC7">
-                                                <rect key="frame" x="0.0" y="155" width="375" height="50"/>
+                                                <rect key="frame" x="0.0" y="116" width="375" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="YRm-dY-XSC"/>
                                                 </constraints>
@@ -79,8 +62,8 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="166" id="D7k-d4-x0O"/>
                                             <constraint firstItem="HfE-kn-OC7" firstAttribute="top" secondItem="jtV-ja-EAV" secondAttribute="bottom" constant="8" id="GFB-ws-0Xj"/>
-                                            <constraint firstItem="jtV-ja-EAV" firstAttribute="top" secondItem="mut-4S-4rf" secondAttribute="bottom" constant="8" id="MNq-wW-D7v"/>
                                             <constraint firstItem="HfE-kn-OC7" firstAttribute="top" secondItem="jtV-ja-EAV" secondAttribute="bottom" constant="8" id="Zfe-Ce-Ldn"/>
                                             <constraint firstAttribute="bottom" secondItem="HfE-kn-OC7" secondAttribute="bottom" id="hzq-iW-WYa"/>
                                         </constraints>
@@ -90,7 +73,6 @@
                                 <constraints>
                                     <constraint firstItem="xLZ-l6-Wjy" firstAttribute="leading" secondItem="BaX-hg-PT9" secondAttribute="leading" id="34p-X1-T4K"/>
                                     <constraint firstAttribute="bottom" secondItem="xLZ-l6-Wjy" secondAttribute="bottom" id="kxl-Ry-33E"/>
-                                    <constraint firstAttribute="height" constant="205" id="r58-Y6-9Lr"/>
                                     <constraint firstItem="xLZ-l6-Wjy" firstAttribute="top" secondItem="BaX-hg-PT9" secondAttribute="top" id="rY5-O9-wJ2"/>
                                     <constraint firstAttribute="trailing" secondItem="xLZ-l6-Wjy" secondAttribute="trailing" id="tsR-2K-QSn"/>
                                 </constraints>
@@ -111,7 +93,6 @@
                     <connections>
                         <outlet property="instrumentStackView" destination="K1p-nS-0OS" id="GJP-Of-63o"/>
                         <outlet property="settingsView" destination="BaX-hg-PT9" id="zuZ-Yy-wCz"/>
-                        <outlet property="trailsSwitch" destination="tZE-Gc-hEG" id="fJP-nR-J91"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>

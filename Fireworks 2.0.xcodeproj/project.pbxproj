@@ -20,7 +20,6 @@
 		9D1481EF211C7BF500650980 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481EE211C7BF500650980 /* Stack.swift */; };
 		9D1481F1211C851000650980 /* FireworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481F0211C851000650980 /* FireworkController.swift */; };
 		9D1481F3211C89B000650980 /* Firework.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D1481F2211C89B000650980 /* Firework.swift */; };
-		9D2B06492124A96C003C103D /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2B06482124A96C003C103D /* SettingsCell.swift */; };
 		9D385597212B1E7C009A3247 /* Guitar_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385591212B1E7C009A3247 /* Guitar_2.mp3 */; };
 		9D385598212B1E7C009A3247 /* Guitar_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385592212B1E7C009A3247 /* Guitar_1.mp3 */; };
 		9D385599212B1E7C009A3247 /* Guitar_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385593212B1E7C009A3247 /* Guitar_0.mp3 */; };
@@ -94,7 +93,6 @@
 		9D1481EE211C7BF500650980 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		9D1481F0211C851000650980 /* FireworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireworkController.swift; sourceTree = "<group>"; };
 		9D1481F2211C89B000650980 /* Firework.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firework.swift; sourceTree = "<group>"; };
-		9D2B06482124A96C003C103D /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		9D385591212B1E7C009A3247 /* Guitar_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_2.mp3; sourceTree = "<group>"; };
 		9D385592212B1E7C009A3247 /* Guitar_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_1.mp3; sourceTree = "<group>"; };
 		9D385593212B1E7C009A3247 /* Guitar_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_0.mp3; sourceTree = "<group>"; };
@@ -234,7 +232,6 @@
 				9D6C152020F6632A0050BD60 /* Actions.sks */,
 				9D6C152220F6632A0050BD60 /* GameScene.swift */,
 				9D6C152420F6632A0050BD60 /* GameViewController.swift */,
-				9D2B06482124A96C003C103D /* SettingsCell.swift */,
 				9D6C152620F6632A0050BD60 /* Main.storyboard */,
 				9D1481EE211C7BF500650980 /* Stack.swift */,
 				9D1481F2211C89B000650980 /* Firework.swift */,
@@ -479,7 +476,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D1481F1211C851000650980 /* FireworkController.swift in Sources */,
-				9D2B06492124A96C003C103D /* SettingsCell.swift in Sources */,
 				9D6C152320F6632A0050BD60 /* GameScene.swift in Sources */,
 				9D1481EF211C7BF500650980 /* Stack.swift in Sources */,
 				9D6C152520F6632A0050BD60 /* GameViewController.swift in Sources */,
