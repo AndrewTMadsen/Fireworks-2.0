@@ -23,6 +23,8 @@ class GameScene: SKScene {
     var currentInstrument = Instrument.piano
     var trailsEnabled = false
     
+    
+    
     func startTimer() {
         countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
         isTouchEligible = false
