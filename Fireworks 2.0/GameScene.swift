@@ -181,8 +181,9 @@ extension GameScene: AVAudioPlayerDelegate {
     }
 }
 
-enum Instrument {
-    case piano, guitar
+enum Instrument: Int {
+    case piano = 0
+    case guitar = 1
 }
 
 protocol RecorderDelegate: class  {

@@ -7,3 +7,14 @@
 //
 
 import Foundation
+import CoreData
+
+extension Recording {
+    convenience init?(hasTrails: Bool, instrument: Int16) {
+        self.init(context: Stack.context)
+        
+        self.hasTrails = hasTrails
+        self.instrument = instrument
+    }
+    
+}

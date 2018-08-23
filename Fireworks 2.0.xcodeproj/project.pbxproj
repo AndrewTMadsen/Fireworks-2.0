@@ -26,6 +26,9 @@
 		9D38559A212B1E7C009A3247 /* Guitar_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385594212B1E7C009A3247 /* Guitar_3.mp3 */; };
 		9D38559B212B1E7C009A3247 /* Guitar_5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385595212B1E7C009A3247 /* Guitar_5.mp3 */; };
 		9D38559C212B1E7C009A3247 /* Guitar_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9D385596212B1E7C009A3247 /* Guitar_4.mp3 */; };
+		9D38559E212DBD6C009A3247 /* RecordingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D38559D212DBD6C009A3247 /* RecordingTableViewController.swift */; };
+		9D3855A1212EF904009A3247 /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3855A0212EF904009A3247 /* Recording.swift */; };
+		9D3855A5212EFB3F009A3247 /* RecordingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3855A4212EFB3F009A3247 /* RecordingController.swift */; };
 		9D6C151D20F6632A0050BD60 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D6C151C20F6632A0050BD60 /* AppDelegate.swift */; };
 		9D6C151F20F6632A0050BD60 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9D6C151E20F6632A0050BD60 /* GameScene.sks */; };
 		9D6C152120F6632A0050BD60 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9D6C152020F6632A0050BD60 /* Actions.sks */; };
@@ -99,6 +102,9 @@
 		9D385594212B1E7C009A3247 /* Guitar_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_3.mp3; sourceTree = "<group>"; };
 		9D385595212B1E7C009A3247 /* Guitar_5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_5.mp3; sourceTree = "<group>"; };
 		9D385596212B1E7C009A3247 /* Guitar_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_4.mp3; sourceTree = "<group>"; };
+		9D38559D212DBD6C009A3247 /* RecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewController.swift; sourceTree = "<group>"; };
+		9D3855A0212EF904009A3247 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
+		9D3855A4212EFB3F009A3247 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
 		9D6C151920F6632A0050BD60 /* Fireworks 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fireworks 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C151C20F6632A0050BD60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6C151E20F6632A0050BD60 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -204,6 +210,19 @@
 			path = Guitar;
 			sourceTree = "<group>";
 		};
+		9D38559F212EF889009A3247 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				9D1481F2211C89B000650980 /* Firework.swift */,
+				9D1481F0211C851000650980 /* FireworkController.swift */,
+				9D3855A0212EF904009A3247 /* Recording.swift */,
+				9D3855A4212EFB3F009A3247 /* RecordingController.swift */,
+				9D1481EE211C7BF500650980 /* Stack.swift */,
+				9D1481EB211B50F200650980 /* Model.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
 		9D6C151020F6632A0050BD60 = {
 			isa = PBXGroup;
 			children = (
@@ -232,15 +251,13 @@
 				9D6C152020F6632A0050BD60 /* Actions.sks */,
 				9D6C152220F6632A0050BD60 /* GameScene.swift */,
 				9D6C152420F6632A0050BD60 /* GameViewController.swift */,
+				9D38559D212DBD6C009A3247 /* RecordingTableViewController.swift */,
 				9D6C152620F6632A0050BD60 /* Main.storyboard */,
-				9D1481EE211C7BF500650980 /* Stack.swift */,
-				9D1481F2211C89B000650980 /* Firework.swift */,
-				9D1481F0211C851000650980 /* FireworkController.swift */,
+				9D38559F212EF889009A3247 /* Core Data */,
 				9DB4065D21004C8D0068B832 /* Fireworks */,
 				9D6C152920F6632B0050BD60 /* Assets.xcassets */,
 				9D6C152B20F6632B0050BD60 /* LaunchScreen.storyboard */,
 				9D6C152E20F6632B0050BD60 /* Info.plist */,
-				9D1481EB211B50F200650980 /* Model.xcdatamodeld */,
 			);
 			path = "Fireworks 2.0";
 			sourceTree = "<group>";
@@ -477,9 +494,12 @@
 			files = (
 				9D1481F1211C851000650980 /* FireworkController.swift in Sources */,
 				9D6C152320F6632A0050BD60 /* GameScene.swift in Sources */,
+				9D3855A5212EFB3F009A3247 /* RecordingController.swift in Sources */,
 				9D1481EF211C7BF500650980 /* Stack.swift in Sources */,
 				9D6C152520F6632A0050BD60 /* GameViewController.swift in Sources */,
+				9D3855A1212EF904009A3247 /* Recording.swift in Sources */,
 				9D6C151D20F6632A0050BD60 /* AppDelegate.swift in Sources */,
+				9D38559E212DBD6C009A3247 /* RecordingTableViewController.swift in Sources */,
 				9D1481F3211C89B000650980 /* Firework.swift in Sources */,
 				9D1481ED211B50F200650980 /* Model.xcdatamodeld in Sources */,
 			);

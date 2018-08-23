@@ -109,6 +109,19 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
     @IBAction func toggleRecording(_ sender: UIButton) {
         isRecording = !isRecording
         sender.setTitle(isRecording ? "End Recording" : "Start Recording", for: .normal)
+        if !isRecording {
+            let alert = UIAlertController(title: "Give your new Recording a Name", message: "", preferredStyle: .alert)
+            alert.addTextField(configurationHandler: { textField in textField.placeholder = "Name of the recording"})
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                
+                if let name = alert.textFields?.first?.text {
+                    print("Your name: \(name)")
+                }
+            }))
+            alert.addAction(UIAlertAction(title: "Discard Recording", style: .destructive, handler: nil))
+            self.present(alert, animated: true)
+            
+        }
     }
     
     @IBAction func viewRecordings(_ sender: UIButton) {
