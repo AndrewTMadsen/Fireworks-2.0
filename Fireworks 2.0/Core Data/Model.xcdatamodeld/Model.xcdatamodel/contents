@@ -7,10 +7,12 @@
         <relationship name="comms" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recording" inverseName="cams" inverseEntity="Recording" syncable="YES"/>
     </entity>
     <entity name="Recording" representedClassName="Recording" syncable="YES" codeGenerationType="class">
+        <attribute name="hasTrails" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instrament" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="cams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Firework" inverseName="comms" inverseEntity="Firework" syncable="YES"/>
     </entity>
     <elements>
         <element name="Firework" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Recording" positionX="-54" positionY="-9" width="128" height="60"/>
+        <element name="Recording" positionX="-54" positionY="-9" width="128" height="90"/>
     </elements>
 </model>
