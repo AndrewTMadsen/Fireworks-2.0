@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Recording Table View Controller-->
         <scene sceneID="mMp-r3-IW4">
             <objects>
-                <tableViewController id="n3y-QE-sqR" sceneMemberID="viewController">
+                <tableViewController id="n3y-QE-sqR" customClass="RecordingTableViewController" customModule="Fireworks_2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="NQJ-Is-Hi6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -113,7 +113,11 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Saved Recordings" id="JXv-P1-ePC">
-                                    <barButtonItem key="rightBarButtonItem" systemItem="stop" id="j15-ro-Xwd"/>
+                                    <barButtonItem key="rightBarButtonItem" systemItem="stop" id="j15-ro-Xwd">
+                                        <connections>
+                                            <action selector="dismissButton:" destination="n3y-QE-sqR" id="X6y-yd-6AK"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </navigationItem>
                             </items>
                         </navigationBar>
