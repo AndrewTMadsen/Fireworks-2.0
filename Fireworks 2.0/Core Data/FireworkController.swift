@@ -12,7 +12,7 @@ import CoreData
 class FireworkController {
     static let sharedController = FireworkController()
     
-    var fireworks: [Firework] {
+    /*var fireworks: [Firework] {
         let request: NSFetchRequest<Firework> = Firework.fetchRequest()
         
         do {
@@ -21,23 +21,13 @@ class FireworkController {
             print(error.localizedDescription)
             return []
         }
-    }
-   
-    func save() {
-        do {
-            try Stack.context.save()
-        } catch {
-            print("Cant save to core data")
+    }*/
+    
+    func createFirework(time: Int64, x: Double, y: Double, instrument: String) {
+        if RecordingController.sharedController.startTime != nil {
+            if let firework = Firework(time: time, x: x, y: y, instrument: instrument) {
+                RecordingController.sharedController.fireworks.append(firework)
+            }
         }
-    }
-    
-    func delete(Firework: Firework) {
-        Stack.context.delete(Firework)
-        save()
-    }
-    
-    func createFirework(time: Int64, x: Double, y: Double) {
-       let _ = Firework(time: time, x: x, y: y)
-        save()
     }
 }

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Firework" representedClassName="Firework" syncable="YES" codeGenerationType="class">
-        <attribute name="time" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="x" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="y" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="instrument" attributeType="String" syncable="YES"/>
+        <attribute name="time" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="x" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="y" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="comms" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Recording" inverseName="cams" inverseEntity="Recording" syncable="YES"/>
     </entity>
     <entity name="Recording" representedClassName="Recording" syncable="YES" codeGenerationType="class">
-        <attribute name="hasTrails" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="instrument" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="endTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="startTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="cams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Firework" inverseName="comms" inverseEntity="Firework" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Firework" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="Recording" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Firework" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Recording" positionX="-54" positionY="-9" width="128" height="105"/>
     </elements>
 </model>

@@ -13,15 +13,34 @@ import ReplayKit
 
 class GameViewController: UIViewController, RPPreviewViewControllerDelegate, RecorderDelegate {
     
-    @IBOutlet weak var settingsView: UIView!
-    @IBOutlet weak var instrumentStackView: UIStackView!
-    
     var startTime: TimeInterval = 0
     var timeKeep: [TimeInterval: CGPoint] = [:]
     let recorder = RPScreenRecorder.shared()
     var hasTrails: Bool = false
     private var isRecording = false
     
+    @IBOutlet weak var settingsView: UIView!
+    @IBOutlet weak var instrumentStackView: UIStackView!
+    
+    @IBAction func viewRecordings(_ sender: UIButton) {
+        performSegue(withIdentifier: "viewWithListOfRecordings", sender: nil)
+    }
+    
+    @IBAction func toggleRecording(_ sender: UIButton) {
+        if !isRecording {
+            startRecording()
+        } else {
+            stopRecording()
+        }
+        sender.setTitle(isRecording ? "End Recording" : "Start Recording", for: .normal)
+    }
+    
+    @IBAction func toggleSettingsView(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.settingsView.transform = self.settingsView.transform == CGAffineTransform.identity ? CGAffineTransform(translationX: 0, y: -self.settingsView.bounds.height - (UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 ? 35 : 0)) : CGAffineTransform.identity
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +56,7 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
             view.showsFPS = true
             view.showsNodeCount = true
         }
+        
         instrumentStackView.translatesAutoresizingMaskIntoConstraints = false
         for instrument in GameScene.sharedInstance.instrumentTypes.keys {
             let instrumentButton = UIButton()
@@ -46,6 +66,7 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
             instrumentButton.addTarget(self, action: #selector(instrumentButtonTapped), for: .touchUpInside)
             instrumentStackView.addArrangedSubview(instrumentButton)
         }
+        
         let trailsButton = UIButton()
         trailsButton.setTitle("Trails", for: .normal)
         trailsButton.setTitleColor(UIColor(red: 0, green: 122.0 / 255, blue: 1, alpha: 1), for: .normal)
@@ -63,29 +84,29 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
     }
     
     func startRecording() {
-        startTime = NSDate.timeIntervalSinceReferenceDate
+        RecordingController.sharedController.startTime = Date()
         self.isRecording = true
     }
     
     func stopRecording() {
-        startTime = 0
+        RecordingController.sharedController.endTime = Date()
         self.isRecording = false
+        RecordingController.sharedController.saveRecording(self)
+        RecordingController.sharedController.startTime = nil
+        RecordingController.sharedController.endTime = nil
+        RecordingController.sharedController.fireworks = []
         /*
          for (thing, thing) in dictionary
-         {
+         {  
             //put into coredata
          }
          */
     }
     
+ 
+    
     func previewControllerDidFinish(_ previewController: RPPreviewViewController) {
         dismiss(animated: true)
-    }
-    
-    @IBAction func toggleSettingsView(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3) {
-            self.settingsView.transform = self.settingsView.transform == CGAffineTransform.identity ? CGAffineTransform(translationX: 0, y: -self.settingsView.bounds.height - (UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 ? 35 : 0)) : CGAffineTransform.identity
-        }
     }
     
     @objc func instrumentButtonTapped(_ sender: UIButton){
@@ -101,31 +122,10 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
                 }
             }
         }
+        
         if let sound = selectedSound {
             GameScene.sharedInstance.currentInstrument = sound
         }
-    }
-    
-    @IBAction func toggleRecording(_ sender: UIButton) {
-        isRecording = !isRecording
-        sender.setTitle(isRecording ? "End Recording" : "Start Recording", for: .normal)
-        if !isRecording {
-            let alert = UIAlertController(title: "Give your new Recording a Name", message: "", preferredStyle: .alert)
-            alert.addTextField(configurationHandler: { textField in textField.placeholder = "Name of the recording"})
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                
-                if let name = alert.textFields?.first?.text {
-                    print("Your name: \(name)")
-                }
-            }))
-            alert.addAction(UIAlertAction(title: "Discard Recording", style: .destructive, handler: nil))
-            self.present(alert, animated: true)
-            
-        }
-    }
-    
-    @IBAction func viewRecordings(_ sender: UIButton) {
-        performSegue(withIdentifier: "viewWithListOfRecordings", sender: nil)
     }
     
     override var shouldAutorotate: Bool {
@@ -135,8 +135,14 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         return .portrait
     }
+    var style: UIStatusBarStyle = .lightContent
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        
+        return self.style
+        
+    }
     
     override var prefersStatusBarHidden: Bool {
-        return true
+        return false
     }
 }

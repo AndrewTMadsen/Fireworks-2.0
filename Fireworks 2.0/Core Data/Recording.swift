@@ -10,11 +10,12 @@ import Foundation
 import CoreData
 
 extension Recording {
-    convenience init?(hasTrails: Bool, instrument: Int16) {
+    convenience init?(name: String, startTime: Date, endTime: Date, fireworks: [Firework]) {
         self.init(context: Stack.context)
         
-        self.hasTrails = hasTrails
-        self.instrument = instrument
+        self.name = name
+        self.startTime = startTime
+        self.endTime = endTime
+        self.cams = NSSet(array: fireworks)
     }
-    
 }

@@ -10,7 +10,6 @@ import Foundation
 import CoreData
 
 enum Stack {
-    
     static let container: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Model")

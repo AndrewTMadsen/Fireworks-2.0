@@ -11,31 +11,25 @@ import GameplayKit
 import AVFoundation
  
 class GameScene: SKScene {
+    
     static var sharedInstance: GameScene!
     var hasSetSize = false
     var particles = [UITouch: SKEmitterNode]()
     var particleTrails = [UITouch: SKEmitterNode]()
     var boomPlayer: [AVAudioPlayer] = []
-    var countdownTimer: Timer!
-    var delayTime = 0.125
-    var isTouchEligible = true
+    var countdownTimer: Timer?
+    var delayTime = 0.1
     let instrumentTypes: [Instrument: Int] = [.piano: 8, .guitar: 6]
     var currentInstrument = Instrument.piano
     var trailsEnabled = false
+    var isTouchValid = true
+    var booms: [SKEmitterNode] = [SKEmitterNode(fileNamed: "FireworkExplosion")!, SKEmitterNode(fileNamed: "FireworkExplosion2")!, SKEmitterNode(fileNamed:"FireworkExplosion3")!, SKEmitterNode(fileNamed: "FireworkExplosion4")!, SKEmitterNode(fileNamed: "FireWorkAN")!, SKEmitterNode(fileNamed: "FireworkRL")!, SKEmitterNode(fileNamed: "FireworkKA")!, SKEmitterNode(fileNamed: "FireworkCA")!, SKEmitterNode(fileNamed: "FireworkAB")!, SKEmitterNode(fileNamed: "FireworkSM")!, SKEmitterNode(fileNamed: "FireworkBM")!]
+    var boomTrails: [SKEmitterNode] = [SKEmitterNode(fileNamed: "testTrail")!, SKEmitterNode(fileNamed: "Trail0")!, SKEmitterNode(fileNamed: "Trail1")!, SKEmitterNode(fileNamed: "Trail2")!,SKEmitterNode(fileNamed: "Trail3")!, SKEmitterNode(fileNamed: "Trail4")!, SKEmitterNode(fileNamed: "TrailGOD")!, SKEmitterNode(fileNamed: "Trail5")!, SKEmitterNode(fileNamed: "Trail9")!,SKEmitterNode(fileNamed: "Trail10")!, SKEmitterNode(fileNamed: "Trail11")!]
     
-    
-    
-    func startTimer() {
-        countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
-        isTouchEligible = false
-    }
-    
-    @objc func endTimer() {
-        countdownTimer.invalidate()
-        isTouchEligible = true
-    }
+    weak var recDelegate: RecorderDelegate?
     
     //MARK: Touch
+
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         runTouch(touches)
     }
@@ -44,11 +38,39 @@ class GameScene: SKScene {
         runTouch(touches)
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        removeTouches(touches)
+        endTimer()
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        removeTouches(touches)
+        endTimer()
+    }
+    
+    func startTimer() {
+        countdownTimer = Timer.scheduledTimer(timeInterval: delayTime, target: self, selector: #selector(endTimer), userInfo: nil, repeats: true)
+    }
+    
+    @objc func endTimer() {
+        if countdownTimer != nil
+        {
+            self.countdownTimer?.invalidate()
+            self.countdownTimer = nil
+        }
+    }
+    
     func runTouch(_ touches: Set<UITouch>) {
-        if isTouchEligible {
+        if countdownTimer == nil && isTouchValid {
             startTimer()
             //startTail(at: touches) { point in //NON MUSIC MODE
+            if RecordingController.sharedController.startTime != nil {
+                for point in touches {
+                    FireworkController.sharedController.createFirework(time: Int64(Date().timeIntervalSinceReferenceDate - RecordingController.sharedController.startTime!.timeIntervalSinceReferenceDate), x: Double(point.preciseLocation(in: view).x), y: Double(point.preciseLocation(in: view).y), instrument: trailsEnabled ? "Trails" : "\(currentInstrument)".titlecased())
+                }
+            }
             if trailsEnabled {
+                isTouchValid = false
                 startTail(at: touches) { point in
                     self.fireFirework(point) //If not music, pass in just point here.
                     var section = 0
@@ -58,6 +80,7 @@ class GameScene: SKScene {
                         section += 1 //Thanks swift ++ is so hard
                     }
                     self.playBoomSound("Firework Sound")
+                    self.isTouchValid = true
                 }
             } else {
                 for point in touches {
@@ -74,24 +97,23 @@ class GameScene: SKScene {
         }
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        removeTouches(touches)
-        endTimer()
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        removeTouches(touches)
-        endTimer()
-    }
-    
     func removeTouches(_ touches: Set<UITouch>) {
         for touch in touches {
             particles[touch] = nil
         }
     }
     
-    //MARK: Fireworks
-    var booms: [SKEmitterNode] = [SKEmitterNode(fileNamed: "FireworkExplosion")!, SKEmitterNode(fileNamed: "FireworkExplosion2")!, SKEmitterNode(fileNamed:"FireworkExplosion3")!, SKEmitterNode(fileNamed: "FireworkExplosion4")!, SKEmitterNode(fileNamed: "FireWorkAN")!, SKEmitterNode(fileNamed: "FireworkRL")!, SKEmitterNode(fileNamed: "FireworkKA")!, SKEmitterNode(fileNamed: "FireworkCA")!, SKEmitterNode(fileNamed: "FireworkAB")!, SKEmitterNode(fileNamed: "FireworkSM")!, SKEmitterNode(fileNamed: "FireworkBM")!]
+    // Mark: Firework Particle
+    func fireFirework(_ point: CGPoint) {
+        recDelegate?.fireworkHasFired(point: point)
+        let randomNumber = Int(arc4random_uniform(UInt32(booms.count)))
+        if let particle = self.booms[randomNumber].copy() as? SKEmitterNode {
+            particle.run(SKAction.sequence([SKAction.wait(forDuration: 1.25), SKAction.removeFromParent()]))
+            particle.position = point
+            self.addChild(particle)
+        }
+        //send data to gameviewController
+    }
     
     func playBoomSound(_ fileName: String) {
         let url = URL(fileURLWithPath: Bundle.main.path(forResource: "\(fileName).mp3", ofType: nil)!)
@@ -105,21 +127,10 @@ class GameScene: SKScene {
             print(error.localizedDescription)
         }
     }
-    weak var recDelegate: RecorderDelegate?
-    
-    func fireFirework(_ point: CGPoint) {
-        recDelegate?.fireworkHasFired(point: point)
-        let randomNumber = Int(arc4random_uniform(UInt32(booms.count)))
-        if let particle = self.booms[randomNumber].copy() as? SKEmitterNode {
-            particle.run(SKAction.sequence([SKAction.wait(forDuration: 1.25), SKAction.removeFromParent()]))
-            particle.position = point
-            self.addChild(particle)
-        }
-        //send data to gameviewController
-    }
     
     func getParticle(_ touch: UITouch) -> SKEmitterNode? {
         if let particle = particles[touch] {
+            //TODO: Change my name. SMTH SMH that's atrocious
             let smth = particle.copy() as? SKEmitterNode
             smth?.run(SKAction.sequence([SKAction.wait(forDuration: 1.25), SKAction.removeFromParent()]))
             return smth
@@ -136,10 +147,8 @@ class GameScene: SKScene {
     }
     
     //MARK: Firework Trails
-    var boomTrails: [SKEmitterNode] = [SKEmitterNode(fileNamed: "testTrail")!, SKEmitterNode(fileNamed: "Trail0")!, SKEmitterNode(fileNamed: "Trail1")!, SKEmitterNode(fileNamed: "Trail2")!,SKEmitterNode(fileNamed: "Trail3")!, SKEmitterNode(fileNamed: "Trail4")!, SKEmitterNode(fileNamed: "TrailGOD")!, SKEmitterNode(fileNamed: "Trail5")!, SKEmitterNode(fileNamed: "Trail9")!,SKEmitterNode(fileNamed: "Trail10")!, SKEmitterNode(fileNamed: "Trail11")!]
-    
     func startTail(at touches: Set<UITouch>, _ completion: @escaping (_ point: CGPoint) -> Void) {
-        for touch   in touches {
+        for touch in touches {
             let oldPoint = touch.preciseLocation(in: self.view)
             let newPoint = CGPoint(x: oldPoint.x, y: -oldPoint.y)
             if let particleTrail = particleTrails[touch] {
@@ -149,6 +158,7 @@ class GameScene: SKScene {
                     smthT.position = CGPoint(x: oldPoint.x, y: -UIScreen.main.bounds.height)
                     self.addChild(smthT)
                 }
+        
             } else {
                 let randomNumber = Int(arc4random_uniform(UInt32(boomTrails.count)))
                 if let particleTrail = self.boomTrails[randomNumber].copy() as? SKEmitterNode {
@@ -160,7 +170,6 @@ class GameScene: SKScene {
                 
             }
         }
-        startTimer()
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -186,7 +195,7 @@ enum Instrument: Int {
     case guitar = 1
 }
 
-protocol RecorderDelegate: class  {
+protocol RecorderDelegate: class {
     func fireworkHasFired(point: CGPoint)
 }
 

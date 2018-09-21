@@ -10,8 +10,10 @@ import Foundation
 import CoreData
 
 extension Firework {
-    convenience init?(time: Int64, x: Double, y: Double, context: NSManagedObjectContext = Stack.context) {
+    convenience init?(time: Int64, x: Double, y: Double, instrument: String, context: NSManagedObjectContext = Stack.context) {
         self.init(context: Stack.context)
+        
+        self.instrument = instrument
         self.time = time
         self.x = x
         self.y = y
