@@ -11,19 +11,20 @@ import GameplayKit
 import AVFoundation
  
 class GameScene: SKScene {
-    
+
     static var sharedInstance: GameScene!
     var hasSetSize = false
     var particles = [UITouch: SKEmitterNode]()
     var particleTrails = [UITouch: SKEmitterNode]()
     var boomPlayer: [AVAudioPlayer] = []
     var countdownTimer: Timer?
-    var delayTime = 0.1
+    var delayTime = 0.3
     let instrumentTypes: [Instrument: Int] = [.piano: 8, .guitar: 6]
     var currentInstrument = Instrument.piano
     var trailsEnabled = false
     var isTouchValid = true
     var booms: [SKEmitterNode] = [SKEmitterNode(fileNamed: "FireworkExplosion")!, SKEmitterNode(fileNamed: "FireworkExplosion2")!, SKEmitterNode(fileNamed:"FireworkExplosion3")!, SKEmitterNode(fileNamed: "FireworkExplosion4")!, SKEmitterNode(fileNamed: "FireWorkAN")!, SKEmitterNode(fileNamed: "FireworkRL")!, SKEmitterNode(fileNamed: "FireworkKA")!, SKEmitterNode(fileNamed: "FireworkCA")!, SKEmitterNode(fileNamed: "FireworkAB")!, SKEmitterNode(fileNamed: "FireworkSM")!, SKEmitterNode(fileNamed: "FireworkBM")!]
+    
     var boomTrails: [SKEmitterNode] = [SKEmitterNode(fileNamed: "testTrail")!, SKEmitterNode(fileNamed: "Trail0")!, SKEmitterNode(fileNamed: "Trail1")!, SKEmitterNode(fileNamed: "Trail2")!,SKEmitterNode(fileNamed: "Trail3")!, SKEmitterNode(fileNamed: "Trail4")!, SKEmitterNode(fileNamed: "TrailGOD")!, SKEmitterNode(fileNamed: "Trail5")!, SKEmitterNode(fileNamed: "Trail9")!,SKEmitterNode(fileNamed: "Trail10")!, SKEmitterNode(fileNamed: "Trail11")!]
     
     weak var recDelegate: RecorderDelegate?
