@@ -92,7 +92,7 @@ class GameScene: SKScene {
                         currentSize += UIScreen.main.bounds.height / CGFloat(instrumentTypes[currentInstrument]!)
                         section += 1 //Thanks swift ++ is so hard
                     }
-                    playBoomSound("\("\(currentInstrument)".titlecased())_\(section)")
+                     playBoomSound("\("\(currentInstrument)".titlecased())_\(section)")
                 }
             }
         }
@@ -168,7 +168,6 @@ class GameScene: SKScene {
                     particleTrail.position = CGPoint(x: oldPoint.x, y: -UIScreen.main.bounds.height)
                     self.addChild(particleTrail)
                 }
-                
             }
         }
     }

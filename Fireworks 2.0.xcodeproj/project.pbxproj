@@ -104,7 +104,7 @@
 		9D385596212B1E7C009A3247 /* Guitar_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Guitar_4.mp3; sourceTree = "<group>"; };
 		9D38559D212DBD6C009A3247 /* RecordingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewController.swift; sourceTree = "<group>"; };
 		9D3855A0212EF904009A3247 /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
-		9D3855A4212EFB3F009A3247 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; };
+		9D3855A4212EFB3F009A3247 /* RecordingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingController.swift; sourceTree = "<group>"; usesTabs = 0; };
 		9D6C151920F6632A0050BD60 /* Fireworks 2.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fireworks 2.0.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D6C151C20F6632A0050BD60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9D6C151E20F6632A0050BD60 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -388,13 +388,16 @@
 				TargetAttributes = {
 					9D6C151820F6632A0050BD60 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 					9D6C153220F6632B0050BD60 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 9D6C151820F6632A0050BD60;
 					};
 					9D6C153D20F6632B0050BD60 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 						TestTargetID = 9D6C151820F6632A0050BD60;
 					};
 				};
@@ -684,7 +687,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -703,7 +706,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -722,7 +725,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fireworks 2.0.app/Fireworks 2.0";
 			};
@@ -742,7 +745,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Fireworks 2.0.app/Fireworks 2.0";
 			};
@@ -761,7 +764,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Fireworks 2.0";
 			};
@@ -780,7 +783,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.andrewtm.Fireworks-2-0UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = "Fireworks 2.0";
 			};

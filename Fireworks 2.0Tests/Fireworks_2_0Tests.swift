@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Fireworks_2_0
+//@testable import Fireworks_2_0
 
 class Fireworks_2_0Tests: XCTestCase {
     

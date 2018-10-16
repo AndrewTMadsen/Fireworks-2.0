@@ -36,8 +36,9 @@ class GameViewController: UIViewController, RPPreviewViewControllerDelegate, Rec
     }
     
     @IBAction func toggleSettingsView(_ sender: UIButton) {
+        let xDevices: [CGFloat] = [1792 /*XR*/, 2436 /*X, XS*/, 2688 /*XS Max*/]
         UIView.animate(withDuration: 0.3) {
-            self.settingsView.transform = self.settingsView.transform == CGAffineTransform.identity ? CGAffineTransform(translationX: 0, y: -self.settingsView.bounds.height - (UIDevice().userInterfaceIdiom == .phone && UIScreen.main.nativeBounds.height == 2436 ? 35 : 0)) : CGAffineTransform.identity
+            self.settingsView.transform = self.settingsView.transform == CGAffineTransform.identity ? CGAffineTransform(translationX: 0, y: -self.settingsView.bounds.height - (UIDevice().userInterfaceIdiom == .phone && xDevices.contains(UIScreen.main.nativeBounds.height) ? 35 : 0)) : CGAffineTransform.identity
         }
     }
 
